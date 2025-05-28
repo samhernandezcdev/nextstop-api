@@ -18,6 +18,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'DEBBDD0F301CB5E2CAEB2BD9B0154AF8B85DA918',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -52,6 +55,21 @@ $config = [
                 '<controller:\w+>/<id:\d+>'                 => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'    => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'             => '<controller>/<action>',
+
+                // The above configuration mainly adds a URL rule for the controllers
+                // so that data can be accessed and manipulated with friendly URLs and
+                // meaningful HTTP verbs.
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'comentario-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'etiqueta-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'imagen-publicacion-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'insignia-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'lugar-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'lugar-tipo-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'publicacion-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'publicacion-visita-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'usuario-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'voto-comentario-rest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'voto-publicacion-rest'],
             ],
         ],        
     ],
